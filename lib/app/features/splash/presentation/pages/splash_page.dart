@@ -1,9 +1,12 @@
-import 'package:encurtei_ly/app/features/splash/splash_strings.dart';
-import 'package:encurtei_ly/app/ui/utils.dart';
-
 import 'package:flutter/material.dart';
+
 import 'package:flutter_svg/svg.dart';
-import 'package:google_fonts/google_fonts.dart';
+
+import 'package:encurtei_ly/app/shared/widgets/widgets.dart';
+import 'package:encurtei_ly/app/shared/shared.dart';
+
+import 'package:encurtei_ly/app/features/splash/splash.dart';
+import 'package:lottie/lottie.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({Key? key}) : super(key: key);
@@ -14,19 +17,21 @@ class SplashPage extends StatefulWidget {
 }
 
 class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
-  late final AnimationController _controller = AnimationController(
-    duration: const Duration(seconds: 3),
+  late final AnimationController _controllerAnimation = AnimationController(
+    duration: const Duration(seconds: 4),
     vsync: this,
   )..forward();
 
   late final Animation<double> _animation = CurvedAnimation(
-    parent: _controller,
-    curve: Curves.fastOutSlowIn,
+    parent: _controllerAnimation,
+    curve: Curves.easeInOutQuart,
   );
+
+  late bool showButton = false;
 
   @override
   void dispose() {
-    _controller.dispose();
+    _controllerAnimation.dispose();
     super.dispose();
   }
 
@@ -34,95 +39,60 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
   void initState() {
     super.initState();
 
-    Future.delayed(const Duration(seconds: 3), () {
+    Future.delayed(const Duration(seconds: 5), () {
       setState(() {
         showButton = !showButton;
       });
     });
   }
 
-  late bool showButton = false;
-
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: const BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [
-            AppColors.darkBlue,
-            AppColors.lightBlue,
-          ],
-        ),
-      ),
-      child: Scaffold(
-        backgroundColor: Colors.transparent,
-        body: SafeArea(
-          child: Center(
-            child: Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: FadeTransition(
-                opacity: _animation,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Spacer(),
-                    SvgPicture.asset(AppAssets.vectors.svgAppLogo),
-                    const SizedBox(height: 16.0),
-                    Text(
-                      SplashStrings.splashPage.logo,
-                      style: GoogleFonts.poppins(
-                        fontSize: 48,
-                        fontWeight: FontWeight.w700,
-                        color: Colors.white,
-                      ),
+    return ScaffoldTemplateGradient(
+      body: FadeTransition(
+        opacity: _animation,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Spacer(),
+            SizedBox(
+              height: 250,
+              child: Stack(
+                children: [
+                  Center(
+                    child: Lottie.asset(
+                      AppAssets.animations.svgAppLogo,
+                      repeat: false,
                     ),
-                    const SizedBox(height: 16.0),
-                    Text(
-                      SplashStrings.splashPage.slogan,
-                      textAlign: TextAlign.center,
-                      style: GoogleFonts.poppins(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w300,
-                        color: Colors.white,
-                      ),
+                  ),
+                  Center(
+                    child: AnimatedScale(
+                      scale: showButton ? 1 : 0,
+                      curve: Curves.elasticOut,
+                      duration: const Duration(seconds: 2),
+                      child: SvgPicture.asset(AppAssets.vectors.svgAppLogo),
                     ),
-                    const Spacer(),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                      child: AnimatedOpacity(
-                        opacity: showButton ? 1 : 0,
-                        duration: const Duration(seconds: 1),
-                        child: SizedBox(
-                          height: 60,
-                          width: double.maxFinite,
-                          child: ElevatedButton(
-                            onPressed: () {},
-                            style: ButtonStyle(
-                                backgroundColor: MaterialStateProperty.all<Color>(Colors.white),
-                                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                                    RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(100.0),
-                                ))),
-                            child: Text(
-                              SplashStrings.splashPage.enter,
-                              textAlign: TextAlign.center,
-                              style: GoogleFonts.poppins(
-                                fontSize: 16,
-                                fontWeight: FontWeight.w700,
-                                color: AppColors.lightBlue,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
-          ),
+            const SizedBox(height: cSize16),
+            AppText.bold(
+              text: SplashStrings.splashPage.logo,
+              fontSize: cFontSize48,
+            ),
+            const SizedBox(height: cSize16),
+            AppText.light(
+              text: SplashStrings.splashPage.slogan,
+              fontSize: cFontSize16,
+            ),
+            const Spacer(),
+            AppRoundedButton(
+              text: SplashStrings.splashPage.enter,
+              showButton: showButton,
+              onTap: () {},
+            ),
+          ],
         ),
       ),
     );
