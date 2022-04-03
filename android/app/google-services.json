@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "905494059295",
+    "project_id": "encurteily",
+    "storage_bucket": "encurteily.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:905494059295:android:d5773515aee7c70f83782a",
+        "android_client_info": {
+          "package_name": "com.example.encurtei_ly"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "905494059295-i8u9ht5v0evantis72lbuden74duof4p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkchw_MT57m_I-yKorHNRgVH01AhjIoh0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "905494059295-i8u9ht5v0evantis72lbuden74duof4p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
