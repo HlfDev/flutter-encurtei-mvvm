@@ -6,7 +6,7 @@ import 'package:encurtei_ly/app/app.dart';
 
 void main() => runApp(
       DevicePreview(
-        enabled: true,
+        enabled: false,
         builder: (context) => const AppWidget(),
       ),
     );

@@ -1,1 +1,3 @@
-class SplashNavigator {}
+class SplashNavigator {
+  void openLoginPage() {}
+}
