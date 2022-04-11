@@ -13,8 +13,8 @@ class SplashViewModel extends ValueNotifier<SplashViewModelState> {
     await _loadAnimation();
   }
 
-  void onEnterButtonTap() {
-    _openNextPage();
+  void onEnterButtonTap(BuildContext context) {
+    _openNextPage(context);
   }
 
   Future<void> _loadAnimation() async {
@@ -25,7 +25,7 @@ class SplashViewModel extends ValueNotifier<SplashViewModelState> {
     value = SplashSuccessState();
   }
 
-  void _openNextPage() {
-    navigator.openLoginPage();
+  void _openNextPage(BuildContext context) {
+    navigator.openLoginPage(context);
   }
 }

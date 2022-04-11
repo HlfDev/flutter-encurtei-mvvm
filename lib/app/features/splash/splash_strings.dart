@@ -1,8 +1,8 @@
 class SplashStrings {
-  static SplashPage splashPage = SplashPage();
+  static Splash splash = Splash();
 }
 
-class SplashPage {
+class Splash {
   String get enter => 'Entrar';
   String get logo => 'Encurtei.ly';
   String get slogan => 'a forma mais fácil de reduzir e gerenciar\nseus links';

@@ -5,10 +5,10 @@ import 'package:mocktail/mocktail.dart';
 import 'package:provider/provider.dart';
 
 import 'package:encurtei_ly/app/features/splash/view_model/view_model.dart';
-import 'package:encurtei_ly/app/features/splash/view/screens/screens.dart';
+
 import 'package:encurtei_ly/app/features/splash/splash.dart';
 import 'package:encurtei_ly/app/features/splash/view/widgets/logo/logo.dart';
-
+import 'package:encurtei_ly/app/features/splash/view/pages/pages.dart';
 import 'package:encurtei_ly/app/shared/view/widgets/widgets.dart';
 
 import '../../splash_mocks.dart';
@@ -26,7 +26,7 @@ void main() {
     await tester.pumpWidget(ChangeNotifierProvider<SplashViewModel>.value(
       value: _controller,
       child: const MaterialApp(
-        home: SplashScreen(),
+        home: SplashPage(),
       ),
     ));
   }
@@ -41,9 +41,9 @@ void main() {
 
           expect(find.byType(Text), findsNWidgets(3));
           expect(find.byType(AppText), findsNWidgets(3));
-          expect(find.widgetWithText(AppText, SplashStrings.splashPage.logo), findsOneWidget);
-          expect(find.widgetWithText(AppText, SplashStrings.splashPage.slogan), findsOneWidget);
-          expect(find.widgetWithText(AppText, SplashStrings.splashPage.enter), findsOneWidget);
+          expect(find.widgetWithText(AppText, SplashStrings.splash.logo), findsOneWidget);
+          expect(find.widgetWithText(AppText, SplashStrings.splash.slogan), findsOneWidget);
+          expect(find.widgetWithText(AppText, SplashStrings.splash.enter), findsOneWidget);
         },
       );
       testWidgets(
@@ -53,13 +53,7 @@ void main() {
 
           expect(find.byType(AppRoundedButton), findsOneWidget);
           expect(find.byType(ElevatedButton), findsOneWidget);
-          expect(
-            find.widgetWithText(
-              AppRoundedButton,
-              SplashStrings.splashPage.enter,
-            ),
-            findsOneWidget,
-          );
+          expect(find.widgetWithText(AppRoundedButton, SplashStrings.splash.enter), findsOneWidget);
         },
       );
     },

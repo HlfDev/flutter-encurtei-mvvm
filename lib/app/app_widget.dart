@@ -4,10 +4,13 @@ import 'package:device_preview/device_preview.dart';
 import 'package:provider/provider.dart';
 
 import 'package:encurtei_ly/app/features/splash/splash.dart';
-import 'package:encurtei_ly/app/features/splash/view/screens/screens.dart';
+
+import 'package:encurtei_ly/app/app_router.dart';
 
 class AppWidget extends StatelessWidget {
-  const AppWidget({Key? key}) : super(key: key);
+  AppWidget({Key? key}) : super(key: key);
+
+  final _appRouter = AppRouter();
 
   @override
   Widget build(BuildContext context) {
@@ -15,15 +18,13 @@ class AppWidget extends StatelessWidget {
       providers: [
         ...splashModule,
       ],
-      child: MaterialApp(
+      child: MaterialApp.router(
+        routerDelegate: _appRouter.delegate(),
+        routeInformationParser: _appRouter.defaultRouteParser(),
         debugShowCheckedModeBanner: false,
         useInheritedMediaQuery: true,
         locale: DevicePreview.locale(context),
         builder: DevicePreview.appBuilder,
-        initialRoute: SplashScreen.splashPageRoute,
-        routes: {
-          SplashScreen.splashPageRoute: (context) => const SplashScreen(),
-        },
       ),
     );
   }
