@@ -9,15 +9,15 @@ import 'package:encurtei_ly/app/features/splash/splash.dart';
 import 'package:encurtei_ly/app/shared/utils/utils.dart';
 import 'package:encurtei_ly/app/shared/view/widgets/widgets.dart';
 
-class SplashScreen extends StatefulWidget {
-  const SplashScreen({Key? key}) : super(key: key);
+class SplashPage extends StatefulWidget {
+  const SplashPage({Key? key}) : super(key: key);
   static const splashPageRoute = '/splash';
 
   @override
-  State<SplashScreen> createState() => _SplashScreenState();
+  State<SplashPage> createState() => _SplashPageState();
 }
 
-class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMixin {
+class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
   late final AnimationController _controllerAnimation = AnimationController(
     duration: const Duration(seconds: 4),
     vsync: this,
@@ -70,12 +70,12 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
             ),
             const SizedBox(height: cSize16),
             AppText.bold(
-              text: SplashStrings.splashPage.logo,
+              text: SplashStrings.splash.logo,
               fontSize: cFontSize48,
             ),
             const SizedBox(height: cSize16),
             AppText.light(
-              text: SplashStrings.splashPage.slogan,
+              text: SplashStrings.splash.slogan,
               fontSize: cFontSize16,
             ),
             const Spacer(),
@@ -90,8 +90,8 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
                 );
               },
               child: AppRoundedButton(
-                text: SplashStrings.splashPage.enter,
-                onTap: _controller.onEnterButtonTap,
+                text: SplashStrings.splash.enter,
+                onTap: () => _controller.onEnterButtonTap(context),
               ),
             ),
           ],
