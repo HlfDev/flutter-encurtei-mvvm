@@ -21,11 +21,7 @@ packages:
       name: archive
       url: "https://pub.dartlang.org"
     source: hosted
-<<<<<<< HEAD
-    version: "3.3.0"
-=======
     version: "3.1.6"
->>>>>>> feat/splash
   args:
     dependency: transitive
     description:
@@ -40,8 +36,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.8.2"
-<<<<<<< HEAD
-=======
   auto_route:
     dependency: "direct main"
     description:
@@ -56,7 +50,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.2.3"
->>>>>>> feat/splash
   boolean_selector:
     dependency: transitive
     description:
@@ -279,14 +272,11 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-<<<<<<< HEAD
-=======
   flutter_driver:
     dependency: transitive
     description: flutter
     source: sdk
     version: "0.0.0"
->>>>>>> feat/splash
   flutter_lints:
     dependency: "direct dev"
     description:
@@ -330,14 +320,11 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.2"
-<<<<<<< HEAD
-=======
   fuchsia_remote_debug_protocol:
     dependency: transitive
     description: flutter
     source: sdk
     version: "0.0.0"
->>>>>>> feat/splash
   glob:
     dependency: transitive
     description:
