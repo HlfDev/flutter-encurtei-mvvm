@@ -70,12 +70,12 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
             ),
             const SizedBox(height: cSize16),
             AppText.bold(
-              text: SplashStrings.splashPage.logo,
+              text: SplashStrings.splash.logo,
               fontSize: cFontSize48,
             ),
             const SizedBox(height: cSize16),
             AppText.light(
-              text: SplashStrings.splashPage.slogan,
+              text: SplashStrings.splash.slogan,
               fontSize: cFontSize16,
             ),
             const Spacer(),
@@ -90,8 +90,8 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
                 );
               },
               child: AppRoundedButton(
-                text: SplashStrings.splashPage.enter,
-                onTap: _controller.onEnterButtonTap,
+                text: SplashStrings.splash.enter,
+                onTap: () => _controller.onEnterButtonTap(context),
               ),
             ),
           ],
