@@ -26,6 +26,6 @@ class SplashViewModel extends ValueNotifier<SplashViewModelState> {
   }
 
   void _openNextPage(BuildContext context) {
-    navigator.openLoginPage(context);
+    navigator.openHomePage(context);
   }
 }
