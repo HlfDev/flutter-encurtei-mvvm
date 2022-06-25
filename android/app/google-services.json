@@ -7,7 +7,7 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:905494059295:android:d5773515aee7c70f83782a",
+        "mobilesdk_app_id": "1:905494059295:android:d3b9d2e34e135aa883782a",
         "android_client_info": {
           "package_name": "com.example.encurtei_ly"
         }
@@ -29,6 +29,13 @@
             {
               "client_id": "905494059295-i8u9ht5v0evantis72lbuden74duof4p.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "905494059295-pn0rj5tfsorumb20i7pq6kv63vcu12n4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.encurtey.ly"
+              }
             }
           ]
         }

@@ -204,9 +204,9 @@ class CardList extends StatelessWidget {
     return ListView.builder(
         itemCount: 10,
         itemBuilder: (context, index) {
-          return const Padding(
-            padding: EdgeInsets.only(top: cPadding16),
-            child: CardListItem(),
+          return  Padding(
+            padding: EdgeInsets.only(bottom: index != 9 ? cPadding16 : 120),
+            child: const CardListItem(),
           );
         });
   }

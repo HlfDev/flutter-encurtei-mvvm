@@ -35,7 +35,7 @@ class ScaffoldTemplate extends StatelessWidget {
           child: Column(children: <Widget>[Expanded(child: body)]),
         ),
       ),
-      bottomSheet: bottom,
+      bottomSheet: SafeArea(child: bottom ?? Container()),
     );
   }
 }
