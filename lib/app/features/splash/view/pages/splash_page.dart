@@ -1,13 +1,10 @@
-import 'package:flutter/material.dart';
-
-import 'package:provider/provider.dart';
-
+import 'package:encurtei_ly/app/features/splash/splash.dart';
 import 'package:encurtei_ly/app/features/splash/view/widgets/logo/logo.dart';
 import 'package:encurtei_ly/app/features/splash/view_model/view_model.dart';
-import 'package:encurtei_ly/app/features/splash/splash.dart';
-
 import 'package:encurtei_ly/app/shared/utils/utils.dart';
 import 'package:encurtei_ly/app/shared/view/widgets/widgets.dart';
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({Key? key}) : super(key: key);
@@ -32,12 +29,12 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
 
   @override
   void initState() {
+    super.initState();
+
     _controller = Provider.of<SplashViewModel>(context, listen: false);
-    WidgetsBinding.instance!.addPostFrameCallback((_) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
       _controller.onInit();
     });
-
-    super.initState();
   }
 
   @override
@@ -89,7 +86,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                   child: child,
                 );
               },
-              child: AppRoundedButton(
+              child: AppRoundedButton.white(
                 text: SplashStrings.splash.enter,
                 onTap: () => _controller.onEnterButtonTap(context),
               ),

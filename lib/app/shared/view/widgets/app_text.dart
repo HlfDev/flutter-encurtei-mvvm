@@ -36,6 +36,15 @@ class AppText extends StatelessWidget {
     this.textAlign = TextAlign.center,
   }) : super(key: key);
 
+  const AppText.medium({
+    Key? key,
+    required this.text,
+    required this.fontSize,
+    this.color = Colors.white,
+    this.fontWeight = FontWeight.w500,
+    this.textAlign = TextAlign.center,
+  }) : super(key: key);
+
   const AppText.bold({
     Key? key,
     required this.text,
