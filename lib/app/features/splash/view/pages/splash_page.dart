@@ -1,13 +1,10 @@
-import 'package:flutter/material.dart';
-
-import 'package:provider/provider.dart';
-
+import 'package:encurtei_ly/app/features/splash/splash.dart';
 import 'package:encurtei_ly/app/features/splash/view/widgets/logo/logo.dart';
 import 'package:encurtei_ly/app/features/splash/view_model/view_model.dart';
-import 'package:encurtei_ly/app/features/splash/splash.dart';
-
 import 'package:encurtei_ly/app/shared/utils/utils.dart';
 import 'package:encurtei_ly/app/shared/view/widgets/widgets.dart';
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({Key? key}) : super(key: key);
@@ -32,12 +29,12 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
 
   @override
   void initState() {
-    _controller = Provider.of<SplashViewModel>(context, listen: false);
-    WidgetsBinding.instance!.addPostFrameCallback((_) {
-      _controller.onInit();
-    });
-
     super.initState();
+
+    _controller = Provider.of<SplashViewModel>(context, listen: false);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _controller.onInit(context);
+    });
   }
 
   @override
@@ -76,24 +73,9 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
             const SizedBox(height: cSize16),
             AppText.light(
               text: SplashStrings.splash.slogan,
-              fontSize: cFontSize16,
+              fontSize: cFontSize24,
             ),
             const Spacer(),
-            ValueListenableBuilder<SplashViewModelState>(
-              valueListenable: _controller,
-              builder: (context, state, child) {
-                return AnimatedScale(
-                  scale: state.showButton ? 1 : 0,
-                  duration: const Duration(seconds: 3),
-                  curve: Curves.elasticOut,
-                  child: child,
-                );
-              },
-              child: AppRoundedButton(
-                text: SplashStrings.splash.enter,
-                onTap: () => _controller.onEnterButtonTap(context),
-              ),
-            ),
           ],
         ),
       ),
