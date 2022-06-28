@@ -1,4 +1,6 @@
+import 'package:encurtei_ly/app/features/home/home_module.dart';
 import 'package:encurtei_ly/app/features/home/view/pages/pages.dart';
+import 'package:encurtei_ly/app/features/login/login_module.dart';
 import 'package:encurtei_ly/app/features/splash/view/pages/pages.dart';
 import 'package:encurtei_ly/app/shared/utils/utils.dart';
 import 'package:flutter/material.dart';
@@ -15,6 +17,8 @@ class AppWidget extends StatelessWidget {
     return MultiProvider(
       providers: [
         ...splashModule,
+        ...homeModule,
+        ...loginModule,
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -26,9 +30,9 @@ class AppWidget extends StatelessWidget {
         },
         theme: ThemeData(
           colorScheme: ColorScheme.fromSwatch().copyWith(secondary: AppColors.white),
-          primaryColor: AppColors.darkBlue,
+          primaryColor: AppColors.secondary,
           visualDensity: VisualDensity.adaptivePlatformDensity,
-          highlightColor: AppColors.lightBlue,
+          highlightColor: AppColors.primary,
           bottomSheetTheme: const BottomSheetThemeData(
             backgroundColor: Colors.transparent,
           ),

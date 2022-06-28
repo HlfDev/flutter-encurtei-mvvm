@@ -11,6 +11,9 @@ class Vectors {
   final svgIconSearch = vector('ic_search.svg');
   final svgIconLink = vector('ic_link.svg');
   final svgIconDescription = vector('ic_description.svg');
+  final svgIconGoogle = vector('ic_google.svg');
+
+  final svgLogin = vector('login.svg');
 }
 
 class Animations {

@@ -33,7 +33,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
 
     _controller = Provider.of<SplashViewModel>(context, listen: false);
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      _controller.onInit();
+      _controller.onInit(context);
     });
   }
 
@@ -73,24 +73,9 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
             const SizedBox(height: cSize16),
             AppText.light(
               text: SplashStrings.splash.slogan,
-              fontSize: cFontSize16,
+              fontSize: cFontSize24,
             ),
             const Spacer(),
-            ValueListenableBuilder<SplashViewModelState>(
-              valueListenable: _controller,
-              builder: (context, state, child) {
-                return AnimatedScale(
-                  scale: state.showButton ? 1 : 0,
-                  duration: const Duration(seconds: 3),
-                  curve: Curves.elasticOut,
-                  child: child,
-                );
-              },
-              child: AppRoundedButton.white(
-                text: SplashStrings.splash.enter,
-                onTap: () => _controller.onEnterButtonTap(context),
-              ),
-            ),
           ],
         ),
       ),

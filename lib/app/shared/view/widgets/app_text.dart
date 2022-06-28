@@ -56,15 +56,13 @@ class AppText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FittedBox(
-      child: Text(
-        text,
-        textAlign: textAlign,
-        style: GoogleFonts.poppins(
-          fontSize: fontSize,
-          fontWeight: fontWeight,
-          color: color,
-        ),
+    return Text(
+      text,
+      textAlign: textAlign,
+      style: GoogleFonts.poppins(
+        fontSize: fontSize,
+        fontWeight: fontWeight,
+        color: color,
       ),
     );
   }

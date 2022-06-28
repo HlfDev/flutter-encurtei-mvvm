@@ -15,8 +15,8 @@ class ScaffoldTemplateGradient extends StatelessWidget {
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
           colors: [
-            AppColors.darkBlue,
-            AppColors.lightBlue,
+            AppColors.secondary,
+            AppColors.primary,
           ],
         ),
       ),

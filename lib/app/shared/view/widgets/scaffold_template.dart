@@ -7,6 +7,7 @@ class ScaffoldTemplate extends StatelessWidget {
   final String title;
   final Widget body;
   final Widget? bottom;
+  final List<Widget>? appBarActions;
 
   final Color backgroundColor;
 
@@ -16,6 +17,7 @@ class ScaffoldTemplate extends StatelessWidget {
     required this.body,
     this.bottom,
     this.backgroundColor = AppColors.white,
+    this.appBarActions,
   }) : super(key: key);
 
   @override
@@ -25,9 +27,8 @@ class ScaffoldTemplate extends StatelessWidget {
       backgroundColor: backgroundColor,
       appBar: AppBar(
         backgroundColor: backgroundColor,
-        title: AppBarTitle(title: title),
-        centerTitle: true,
         elevation: 0,
+        actions: appBarActions,
       ),
       body: SafeArea(
         child: Padding(
@@ -52,7 +53,7 @@ class AppBarTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppText.bold(
       text: title,
-      fontSize: cFontSize24,
+      fontSize: cFontSize32,
       color: AppColors.black,
     );
   }

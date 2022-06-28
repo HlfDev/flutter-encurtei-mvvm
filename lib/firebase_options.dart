@@ -25,10 +25,7 @@ class DefaultFirebaseOptions {
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for macos - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return macos;
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -72,5 +69,15 @@ class DefaultFirebaseOptions {
     storageBucket: 'encurteily.appspot.com',
     iosClientId: '905494059295-s0il1c6j1phtj4jk53stgo9t36t4u7jd.apps.googleusercontent.com',
     iosBundleId: 'com.example.encurteiLy',
+  );
+
+  static const FirebaseOptions macos = FirebaseOptions(
+    apiKey: 'AIzaSyDFa3JHFg_evYoNjV_smjg72Cv55Q-rde8',
+    appId: '1:905494059295:ios:06037fe16884cb5b83782a',
+    messagingSenderId: '905494059295',
+    projectId: 'encurteily',
+    storageBucket: 'encurteily.appspot.com',
+    iosClientId: '905494059295-p36jlg3cfeq48tb1vt14dljsb62pn0ca.apps.googleusercontent.com',
+    iosBundleId: 'com.example.flutterEncurteiMvvm',
   );
 }

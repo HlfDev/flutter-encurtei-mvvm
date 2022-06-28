@@ -18,8 +18,8 @@ class LogoStaticWidget extends StatelessWidget {
       child: Center(
         child: AnimatedScale(
           scale: 1,
-          curve: Curves.elasticOut,
-          duration: const Duration(seconds: 2),
+          curve: Curves.elasticInOut,
+          duration: const Duration(seconds: 10),
           child: SvgPicture.asset(asset),
         ),
       ),
